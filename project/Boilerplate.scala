@@ -197,8 +197,8 @@ object Boilerplate {
         |import io.circe.tests.{ CodecTests, CirceSuite }
         |
         |class TupleCodecSuite extends CirceSuite {
-        |  checkAll("Codec[Tuple1[Int]]", CodecTests[Tuple1[Int]].codec)
-        -  checkAll("Codec[$tupleType]", CodecTests[$tupleType].codec)
+        |  checkLaws("Codec[Tuple1[Int]]", CodecTests[Tuple1[Int]].codec)
+        -  checkLaws("Codec[$tupleType]", CodecTests[$tupleType].codec)
         |}
       """
     }
@@ -319,7 +319,7 @@ object Boilerplate {
         -    implicit val decodeCc$arity: Decoder[Cc$arity] =
         -      Decoder.forProduct$arity($memberNames)(Cc$arity.apply)
         -  }
-        -  checkAll("Codec[Cc$arity]", CodecTests[Cc$arity].codec)
+        -  checkLaws("Codec[Cc$arity]", CodecTests[Cc$arity].codec)
         |}
       """
     }
